@@ -8,7 +8,7 @@ dependencies {
 
 //    implementation(project(":usecase"))
 //
-//    implementation(project(":adapter:mysql"))
+    implementation(project(":adapter:mysql"))
 //    implementation(project(":adapter:kafka"))
 //    implementation(project(":adapter:redis"))
     implementation(project(":adapter:metadata"))
