@@ -18,8 +18,8 @@ public class EnrollmentHistoryService implements EnrollmentHistoryUsecase {
 
 
     @Override
-    public boolean isFirstRequestFromUser(Long lectureId, Long userId) {
-        return enrollmentRequestHistoryPort.setHistoryIfNotExists(lectureId, userId);
+    public boolean isFirstRequestFromUser(Long lectureId, Long memberId) {
+        return enrollmentRequestHistoryPort.setHistoryIfNotExists(lectureId, memberId);
     }
 
     @Override

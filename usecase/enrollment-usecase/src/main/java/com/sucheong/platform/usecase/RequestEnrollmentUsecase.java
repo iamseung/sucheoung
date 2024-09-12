@@ -1,5 +1,5 @@
 package com.sucheong.platform.usecase;
 
 public interface RequestEnrollmentUsecase {
-    void queue(Long lectureId, Long userId);
+    void queue(Long lectureId, Long memberId);
 }

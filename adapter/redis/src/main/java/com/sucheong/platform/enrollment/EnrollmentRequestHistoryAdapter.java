@@ -19,9 +19,9 @@ public class EnrollmentRequestHistoryAdapter implements EnrollmentRequestHistory
     private final RedisTemplate<String, String> redisTemplate;
 
     @Override
-    public boolean setHistoryIfNotExists(Long lectureId, Long userId) {
+    public boolean setHistoryIfNotExists(Long lectureId, Long memberId) {
         return redisTemplate.opsForValue().setIfAbsent(
-                this.generateUserRequestHistoryCacheKey(lectureId, userId),
+                this.generateUserRequestHistoryCacheKey(lectureId, memberId),
                 "1",
                 Duration.ofSeconds(EXPIRE_SECONDS)
         );
@@ -40,8 +40,8 @@ public class EnrollmentRequestHistoryAdapter implements EnrollmentRequestHistory
         return requestSequence;
     }
 
-    private String generateUserRequestHistoryCacheKey(Long lectureId, Long userId) {
-        return USER_REQUEST_HISTORY_KEY_PREFIX.formatted(lectureId, userId);
+    private String generateUserRequestHistoryCacheKey(Long lectureId, Long memberId) {
+        return USER_REQUEST_HISTORY_KEY_PREFIX.formatted(lectureId, memberId);
     }
 
     private String generateRequestCountHistoryCacheKey(Long lectureId) {

@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RequestEnrollmentService implements RequestEnrollmentUsecase {
 
+    private final
+
     @Override
-    public void queue(Long lectureId, Long userId) {
+    public void queue(Long lectureId, Long memberId) {
 
     }
 }

@@ -7,5 +7,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EnrollmentRequest {
     private Long lectureId;
-    private Long userId;
+    private Long memberId;
 }
