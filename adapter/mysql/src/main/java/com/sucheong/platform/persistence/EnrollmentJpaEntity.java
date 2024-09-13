@@ -16,5 +16,4 @@ public class EnrollmentJpaEntity extends AuditingFields {
     @ManyToOne
     @JoinColumn(name = "lecture_id")
     private LectureJpaEntity lecture;
-    private LocalDateTime enrolledAt;
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-@EntityScan(basePackages = {"com.sucheong.platform.persistence"})
+//@EntityScan(basePackages = {"com.sucheong.platform.persistence"})
 public class ApiApplication {
 
     public static void main(String[] args) {
