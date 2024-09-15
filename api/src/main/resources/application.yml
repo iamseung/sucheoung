@@ -11,7 +11,13 @@ spring:
         show_sql: true
         #ddl-auto: create
         hbm2ddl:
-          auto: create
+          auto: none
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
 #  kafka:
 #    bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
 
