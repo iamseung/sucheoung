@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Entity(name = "enrollment")
-public class EnrollmentJpaEntity {
+public class EnrollmentJpaEntity extends AuditingFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +22,4 @@ public class EnrollmentJpaEntity {
     @ManyToOne
     @JoinColumn(name = "lecture_id")
     private LectureJpaEntity lecture;
-    private LocalDateTime enrolledAt;
 }
