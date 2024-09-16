@@ -1,11 +1,8 @@
 package com.sucheong.platform;
 
-import com.sucheong.platform.model.MetadataResponse;
 import com.sucheong.platform.port.MetadataPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor

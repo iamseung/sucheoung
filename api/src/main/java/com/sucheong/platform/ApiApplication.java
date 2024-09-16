@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 @SpringBootApplication
 //@EntityScan(basePackages = {"com.sucheong.platform.persistence"})
 public class ApiApplication {
@@ -16,10 +15,4 @@ public class ApiApplication {
 
         SpringApplication.run(ApiApplication.class, args);
     }
-
-    @GetMapping("")
-    public String test() {
-        return "hi";
-    }
-
 }
