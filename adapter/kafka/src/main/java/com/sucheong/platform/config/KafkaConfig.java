@@ -13,10 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.kafka.core.ConsumerFactory;
-import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
-import org.springframework.kafka.core.DefaultKafkaProducerFactory;
-import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.core.*;
 import org.springframework.kafka.listener.CommonContainerStoppingErrorHandler;
 import org.springframework.kafka.listener.CommonErrorHandler;
 import org.springframework.kafka.listener.DefaultErrorHandler;
@@ -63,6 +60,12 @@ public class KafkaConfig {
         props.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, "false");
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
         return new DefaultKafkaConsumerFactory<>(props);
+    }
+
+    @Bean
+    @Primary
+    public KafkaTemplate<String, ?> kafkaTemplate(KafkaProperties kafkaProperties) {
+        return new KafkaTemplate<>(producerFactory(kafkaProperties));
     }
 
     @Bean

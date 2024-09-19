@@ -1,6 +1,13 @@
 package com.sucheong.platform.port;
 
+import com.sucheong.platform.lecture.model.Enrollment;
+
+import java.util.List;
+
 public interface EnrollmentPort {
 
-//    Enrollment
+    Enrollment save(Enrollment enrollment);
+    Enrollment findById(Long enrollmentId);
+    List<Enrollment> listByLectureId(Long lectureId);
+    List<Enrollment> listByMemberId(Long memberId);
 }

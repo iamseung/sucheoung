@@ -1,5 +1,6 @@
 package com.sucheong.platform.enrollment;
 
+import com.sucheong.platform.common.OperationType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +10,12 @@ import lombok.NoArgsConstructor;
 @Data
 public class EnrollmentRequestMessage {
 
-    private Long lectureId;
+    private Long enrollmentId;
     private Long memberId;
+    private Long lectureId;
+    private OperationType operationType;
 
-    public static EnrollmentRequestMessage from(Long lectureId, Long memberId) {
-        return new EnrollmentRequestMessage(lectureId, memberId);
+    public static EnrollmentRequestMessage of(Long enrollmentId, Long memberId, Long lectureId, OperationType operationType) {
+        return new EnrollmentRequestMessage(enrollmentId, memberId, lectureId,operationType);
     }
 }
