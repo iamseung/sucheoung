@@ -4,5 +4,7 @@ public interface EnrollmentRequestHistoryPort {
 
     boolean setHistoryIfNotExists(Long lectureId, Long memberId);
 
-    Long getRequestSequence(Long lectureId);
+    boolean hasRemainingQuantity(Long lectureId, int capacity);
+
+    boolean deleteRequest(Long memberId, Long lectureId);
 }

@@ -4,7 +4,7 @@ dependencies {
 
     implementation(project(":usecase:enrollment-usecase"))
 
-    implementation(project(":adapter:kafka"))
     implementation(project(":adapter:mysql"))
+    implementation(project(":adapter:kafka"))
     implementation(project(":adapter:redis"))
 }
