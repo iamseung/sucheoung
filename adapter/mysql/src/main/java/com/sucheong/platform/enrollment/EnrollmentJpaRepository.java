@@ -9,5 +9,5 @@ public interface EnrollmentJpaRepository extends JpaRepository<EnrollmentJpaEnti
 
     List<EnrollmentJpaEntity> findAllByLectureId(Long lectureId);
 
-    List<EnrollmentJpaEntity> findAllByMemberId(Long memberId);
+    List<EnrollmentJpaEntity> findAllByMemberIdAndDeletedAtIsNull(Long memberId);
 }

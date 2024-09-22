@@ -1,6 +1,7 @@
 package com.sucheong.platform.port;
 
-import com.sucheong.platform.lecture.model.Enrollment;
+
+import com.sucheong.platform.enrollment.model.Enrollment;
 
 import java.util.List;
 
