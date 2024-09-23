@@ -1,4 +1,4 @@
-package com.sucheong.platform.lecture.model;
+package com.sucheong.platform.enrollment.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

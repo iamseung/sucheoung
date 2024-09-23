@@ -1,6 +1,6 @@
 package com.sucheong.platform.enrollment;
 
-import com.sucheong.platform.lecture.model.Enrollment;
+import com.sucheong.platform.enrollment.model.Enrollment;
 import com.sucheong.platform.persistence.EnrollmentJpaEntity;
 import com.sucheong.platform.port.EnrollmentPort;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +38,7 @@ public class EnrollmentAdapter implements EnrollmentPort {
 
     @Override
     public List<Enrollment> listByMemberId(Long memberId) {
-        List<EnrollmentJpaEntity> enrollmentEntities = enrollmentJpaRepository.findAllByMemberId(memberId).stream().toList();
+        List<EnrollmentJpaEntity> enrollmentEntities = enrollmentJpaRepository.findAllByMemberIdAndDeletedAtIsNull(memberId).stream().toList();
         return enrollmentEntities.stream().map(this::toModel).toList();
 
     }

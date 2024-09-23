@@ -1,6 +1,6 @@
 package com.sucheong.platform.service;
 
-import com.sucheong.platform.lecture.model.Enrollment;
+import com.sucheong.platform.enrollment.model.Enrollment;
 import com.sucheong.platform.port.EnrollmentPort;
 import com.sucheong.platform.usecase.EnrollmentListUsecase;
 import lombok.RequiredArgsConstructor;
