@@ -19,9 +19,9 @@ public class Metadatapplication {
         SpringApplication.run(Metadatapplication.class, args);
     }
 
-    @GetMapping("/123")
-    public String test() {
-        return a.getLectures();
-    }
+//    @GetMapping("/123")
+//    public String test() {
+//        return a.getLectures();
+//    }
 
 }

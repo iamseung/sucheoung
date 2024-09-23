@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   datasource:
@@ -21,7 +21,3 @@ spring:
       port: 6379
   kafka:
     bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
-
-external-server:
-  metadata:
-    url: https://api.odcloud.kr/api
