@@ -5,16 +5,18 @@ import com.sucheong.platform.port.EnrollmentRequestHistoryPort;
 import com.sucheong.platform.port.LectureCachePort;
 import com.sucheong.platform.port.LecturePort;
 import com.sucheong.platform.usecase.EnrollmentHistoryUsecase;
+import com.sucheong.platform.usecase.LectureUsecase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
 public class EnrollmentHistoryService implements EnrollmentHistoryUsecase {
 
     private final EnrollmentRequestHistoryPort enrollmentRequestHistoryPort;
-    private final LecturePort lecturePort;
-    private final LectureCachePort lectureCachePort;
+    private final LectureUsecase lectureUsecase;
 
 
     @Override
@@ -24,7 +26,7 @@ public class EnrollmentHistoryService implements EnrollmentHistoryUsecase {
 
     @Override
     public boolean hasRemainingQuantity(Long lectureId) {
-        Lecture lecture = this.getLectureById(lectureId);
+        Lecture lecture = lectureUsecase.getById(lectureId);
         return enrollmentRequestHistoryPort.hasRemainingQuantity(lectureId, lecture.getCapacity());
     }
 
@@ -33,21 +35,19 @@ public class EnrollmentHistoryService implements EnrollmentHistoryUsecase {
         return enrollmentRequestHistoryPort.deleteRequest(memberId, lectureId);
     }
 
-    private Lecture getLectureById(Long lectureId) {
-        Lecture lectureCache = lectureCachePort.get(lectureId);
+    @Override
+    public int getRequestSequentialNumber(Long lectureId) {
+        return enrollmentRequestHistoryPort.getRequestSequentialNumber(lectureId);
+    }
 
-        if(lectureCache != null) {
-            return lectureCache;
-        } else {
-            Lecture lecture = lecturePort.findById(lectureId);
+    @Override
+    public List<Long> getEnrolledLectureIdsByMemberId(Long memberId) {
+        return enrollmentRequestHistoryPort.getEnrolledLecturesByMemberId(memberId);
+    }
 
-            if(lecture == null) {
-                throw new RuntimeException("Lecture does not exist.");
-            }
-
-            lectureCachePort.set(lecture);
-            return lecture;
-        }
+    @Override
+    public List<Long> getEnrolledMemberIdsByLectureId(Long lectureId)  {
+        return enrollmentRequestHistoryPort.getEnrolledUsersByLectureId(lectureId);
     }
 
 }

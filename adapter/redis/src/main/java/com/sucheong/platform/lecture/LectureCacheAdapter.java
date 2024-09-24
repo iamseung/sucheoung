@@ -9,6 +9,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Component
@@ -47,6 +49,21 @@ public class LectureCacheAdapter implements LectureCachePort {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<Lecture> multiGet(List<Long> lectureIds) {
+
+        List<String> jsonStrings = redisTemplate.opsForValue().multiGet(lectureIds.stream().map(this::generateCacheKey).toList());
+        if(jsonStrings == null) return List.of();
+
+        return jsonStrings.stream().filter(Objects::nonNull).map(jsonString -> {
+            try {
+                return objectMapper.readValue(jsonString, Lecture.class);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }).toList();
     }
 
     private String generateCacheKey(Long lectureId) {

@@ -1,7 +1,6 @@
 package com.sucheong.platform.usecase;
 
-import com.sucheong.platform.lecture.model.Enrollment;
-import lombok.Data;
+import com.sucheong.platform.enrollment.model.Enrollment;
 
 import java.util.List;
 
