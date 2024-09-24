@@ -1,0 +1,1 @@
+insert into member (email, password, code, created_at, modified_at, deleted_at) values ('seungseok@gmail.com', '{noop}asdf1234', 'A', NOW(), NULL, NULL)
