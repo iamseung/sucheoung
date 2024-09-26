@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8083
 
 spring:
   datasource:
@@ -12,14 +12,9 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+        ddl-auto: create
         hbm2ddl:
           auto: none
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: HTML
-    encoding: UTF-8
-    cache: false
   data:
     redis:
       host: localhost
@@ -29,6 +24,3 @@ spring:
       port: 9200
   kafka:
     bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
-external-server:
-  metadata:
-    url: https://api.odcloud.kr/api
